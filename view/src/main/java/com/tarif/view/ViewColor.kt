@@ -14,6 +14,7 @@ import android.view.inputmethod.InputMethodManager
 import androidx.lifecycle.coroutineScope
 import androidx.lifecycle.findViewTreeLifecycleOwner
 import com.google.android.material.snackbar.Snackbar
+import com.tarif.view.ColorUtil.transparentAccentColor
 import kotlinx.coroutines.*
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.channels.actor
@@ -266,12 +267,6 @@ fun View.roundShapeDrawable(r: Float): ShapeDrawable {
     val array = floatArrayOf(r, r, r, r, r, r, r, r)
     return ShapeDrawable(RoundRectShape(array, null, null))
 }
-
-fun transparentAccentColor(color: Int, transparentRange : Int = 10): Int {
-    val stringColorTransparent = ColorUtil.transparentColor(color, transparentRange)
-    return ColorUtil.parseColor(stringColorTransparent)
-}
-
 
 /**
  * For rounded bottomsheet
