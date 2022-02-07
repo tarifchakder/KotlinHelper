@@ -49,10 +49,4 @@ object ColorUtil {
         else Color.parseColor(color)
     }
 
-    fun transparentAccentColor(color: Int, transparentRange : Int = 10): Int {
-        val stringColorTransparent = ColorUtil.transparentColor(color, transparentRange)
-        return ColorUtil.parseColor(stringColorTransparent)
-    }
-
-
 }
