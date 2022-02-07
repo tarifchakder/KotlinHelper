@@ -1,10 +1,12 @@
 package com.tarif.view
 
-import android.R
+
+import android.content.Context
 import android.graphics.Color
 import android.util.Log
 import java.lang.Exception
 import java.util.*
+import kotlin.math.roundToInt
 
 /**
  * @Author: Md Tarif Chakder
@@ -13,12 +15,12 @@ import java.util.*
 object ColorUtil {
 
     // This default color int
-    const val defaultColorID = R.color.black
-    const val defaultColor = "000000"
-    const val TAG = "ColorTransparentUtils"
+    private const val defaultColorID = Color.BLACK
+    private const val defaultColor = "000000"
+    private const val TAG = "ColorTransparentUtils"
 
     fun convert(trans: Int): String {
-        val hexString = Integer.toHexString(Math.round((255 * trans / 100).toFloat()))
+        val hexString = Integer.toHexString((255 * trans / 100).toFloat().roundToInt())
         return (if (hexString.length < 2) "0" else "") + hexString
     }
 
@@ -33,7 +35,7 @@ object ColorUtil {
             color = Integer.toHexString(colorCode).uppercase(Locale.getDefault()).substring(2)
         } catch (ignored: Exception) {
         }
-        return if (!color.isEmpty() && transCode < 100) {
+        return if (color.isNotEmpty() && transCode < 100) {
             if (color.trim { it <= ' ' }.length == 6) {
                 "#" + convert(transCode) + color
             } else {
@@ -42,6 +44,11 @@ object ColorUtil {
             }
         } else "#" + Integer.toHexString(defaultColorID).uppercase(Locale.getDefault()).substring(2)
         // if color is empty or any other problem occur then we return deafult color;
+    }
+
+    fun transparentAccentColor(color : Int, transparentRange : Int = 10): Int {
+        val stringColorTransparent = transparentColor(color, transparentRange)
+        return ColorUtil.parseColor(stringColorTransparent)
     }
 
     fun parseColor(color: String): Int {

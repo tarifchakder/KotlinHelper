@@ -1,10 +1,44 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
-plugins {
-    id 'com.android.application' version '7.1.0' apply false
-    id 'com.android.library' version '7.1.0' apply false
-    id 'org.jetbrains.kotlin.android' version '1.6.10' apply false
+buildscript {
+    ext.kotlin_version = '1.6.10'
+
+    repositories {
+        google()
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:7.0.4'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
+    }
 }
 
 task clean(type: Delete) {
     delete rootProject.buildDir
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+        maven { url 'https://jitpack.io' }
+    }
+}
+
+ext {
+    packageId = "com.tarif.kotlinhelper"
+    versionName = "1.2.0"
+    versionCode = 3
+    compileSDK = 31
+    minSDK = 16
+    targetSDK = 31
+    kotlinSDK = '1.7.0'
+    kotlinx_version = '1.5.2'
+    appcompat = '1.4.0'
+    material = '1.4.0'
+    constraintlayout = '2.1.2'
+    coroutines_core = '1.5.2'
+    lifecycle_runtime_ktx = '2.4.0'
 }
