@@ -6,6 +6,21 @@
 [![](https://img.shields.io/badge/Compiled%20API-31-blue.svg?style=flat)](https://developer.android.com/about/versions/12/setup-sdk)
 [![Kotlin](https://img.shields.io/badge/Kotlin-1.6.10-blue.svg)](https://kotlinlang.org)
 
+# Purpose of library
+
+This library serves as a collection of various Kotlin extensions that simplifies developers life. All of our Kotlin projects had its own extensions
+and in most cases they've done the same but had different names, syntax etc. This project tries to unify that problem with clear separation of
+extensions based on its dependencies.
+
+All extensions are collected from projects that are based on Kotlin
+
+# Structure
+
+Extensions are grouped to submodules that have the same dependency. So for example if extensions have dependency to Collections they are in separate
+module.
+
+All modules has the same version. make sure the version matches the JitPack badge above.
+
 ## How to install
 
 Add the following repository to your build.gradle:
