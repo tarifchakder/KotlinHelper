@@ -1,4 +1,4 @@
-# KotlinHelper - Android Kotlin Extensions
+# KotlinHelper - Android Kotlin Extensions ⭐ ⭐
 
 [![](https://jitpack.io/v/tarifchakder/KotlinHelper.svg)](https://jitpack.io/#tarifchakder/KotlinHelper)
 [![Platform](https://img.shields.io/badge/Platform-Android-green.svg)](https://developer.android.com/guide/)
@@ -25,7 +25,7 @@ All modules has the same version. make sure the version matches the JitPack badg
 
 Add the following repository to your build.gradle:
 
-```
+```gradle
 allprojects {
 	repositories {
 		...
