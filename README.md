@@ -46,6 +46,9 @@ dependencies
          
          // view 
          implementation "com.github.tarifchakder.KotlinHelper:view:$latestVersion'
+         
+         // collections
+         implementation "com.github.tarifchakder.KotlinHelper:collections:$latestVersion'
    }
 ```
 
