@@ -19,6 +19,8 @@ task clean(type: Delete) {
 }
 
 allprojects {
+    group = "com.github.tarifchakder"
+
     repositories {
         google()
         mavenCentral()
@@ -41,4 +43,100 @@ ext {
     constraintlayout = '2.1.2'
     coroutines_core = '1.5.2'
     lifecycle_runtime_ktx = '2.4.0'
+}
+
+subprojects {
+
+    switch (it.name) {
+        case "app":
+            apply plugin: 'com.android.application'
+            apply plugin: 'kotlin-android'
+            apply plugin: 'kotlin-kapt'
+            apply plugin: 'kotlin-parcelize'
+
+            dependencies {
+                implementation fileTree(dir: 'libs', include: ['*.jar'])
+            }
+            applyAndroid(it, true)
+            break
+
+        case ["enums", "regex"]:
+            apply plugin: 'java-library'
+            apply plugin: 'kotlin'
+            applyKotlinModule(it)
+
+            break
+
+        default:
+            //setup gradle for libraries
+            apply plugin: 'com.android.library'
+            apply plugin: 'kotlin-android'
+            apply plugin: 'maven-publish'
+            apply plugin: 'kotlin-parcelize'
+            applyAndroid(it, false)
+
+            dependencies {
+                implementation fileTree(dir: 'libs', include: ['*.jar'])
+            }
+
+            it.afterEvaluate {
+                publishing {
+                    publications {
+                        release(MavenPublication) {
+                            from components.release
+                        }
+                    }
+                }
+            }
+
+            break
+    }
+
+}
+
+def applyKotlinModule(project) {
+
+    project.java {
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
+    }
+
+    project.dependencies {
+        implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    }
+}
+
+def applyAndroid(project, buildConfigCase) {
+    project.android {
+        compileSdkVersion rootProject.ext.compileSDK
+
+        defaultConfig {
+            minSdkVersion rootProject.ext.minSDK
+            targetSdkVersion rootProject.ext.compileSDK
+            versionCode rootProject.ext.versionCode
+            versionName rootProject.ext.versionName
+        }
+
+        compileOptions {
+            sourceCompatibility = 11
+            targetCompatibility = 11
+        }
+
+        kotlinOptions {
+            jvmTarget = 11
+        }
+
+        testOptions.unitTests {
+            includeAndroidResources = true
+        }
+
+        buildFeatures {
+            aidl = false
+            renderScript = false
+            resValues = false
+            shaders = false
+            buildConfig = buildConfigCase
+        }
+    }
+
 }

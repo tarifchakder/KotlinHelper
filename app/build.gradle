@@ -1,17 +1,6 @@
-plugins {
-    id 'com.android.application'
-    id 'org.jetbrains.kotlin.android'
-}
-
 android {
-    compileSdkVersion rootProject.ext.compileSDK
-
     defaultConfig {
         applicationId rootProject.ext.packageId
-        minSdkVersion rootProject.ext.minSDK
-        targetSdkVersion rootProject.ext.targetSDK
-        versionCode rootProject.ext.versionCode
-        versionName rootProject.ext.versionName
     }
 
     buildTypes {
@@ -19,15 +8,23 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+
+        debug {
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
     }
 
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_11
-        targetCompatibility JavaVersion.VERSION_11
+    packagingOptions {
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/LICENSE'
     }
 
-    kotlinOptions {
-        jvmTarget = '11'
+    kapt {
+        correctErrorTypes = true
+        useBuildCache = true
     }
 
     buildFeatures {
@@ -42,5 +39,7 @@ dependencies {
     implementation "androidx.constraintlayout:constraintlayout:$rootProject.ext.constraintlayout"
     implementation "androidx.core:core-ktx:$rootProject.ext.kotlinSDK"
     implementation "com.google.android.material:material:$rootProject.ext.material"
+
+    implementation project(path : ':view')
 
 }
