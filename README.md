@@ -27,7 +27,10 @@ Add this to your module's `build.gradle` file (make sure the version matches the
 dependencies 
         {
          ...
-         implementation 'com.github.tarifchakder:KotlinHelper:1.1.1'
+         def latestVersion = 1.1.4 // check latest version Jitpack badge
+         
+         // view 
+         implementation "com.github.tarifchakder.KotlinHelper:view:$latestVersion'
    }
 ```
 
