@@ -1,10 +1,10 @@
 # KotlinHelper - Android Kotlin Extensions
 
 [![](https://jitpack.io/v/tarifchakder/KotlinHelper.svg)](https://jitpack.io/#tarifchakder/KotlinHelper)
-[![Kotlin](https://img.shields.io/badge/Kotlin-1.6.10-blue.svg)](https://kotlinlang.org) [![Platform](https://img.shields.io/badge/Platform-Android-green.svg)](https://developer.android.com/guide/) [![sad](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)]( https://twitter.com/intent/tweet?url=https%3A%2F%2Ftwitter.com%2Fintent%2Ftweet%3Fhttps%3A%2F%2Fgithub.com%2FCraZyLegenD%2FSet-Of-Useful-Kotlin-Extensions-and-Helpers&text=Kotlin%20Extensions%20and%20Class%20Helpers)
-![API](https://img.shields.io/badge/Min%20API-16-green)
-![API](https://img.shields.io/badge/Compiled%20API-31-green)
+[![Kotlin](https://img.shields.io/badge/Kotlin-1.6.10-blue.svg)](https://kotlinlang.org)
+[![Platform](https://img.shields.io/badge/Platform-Android-green.svg)](https://developer.android.com/guide/)
 [![](https://img.shields.io/badge/API-16%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=16#l16)
+![API](https://img.shields.io/badge/Compiled%20API-31-blue.svg?style=flat)
 
 ## How to install
 
