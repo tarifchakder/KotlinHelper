@@ -4,6 +4,7 @@ buildscript {
     repositories {
         google()
         mavenCentral()
+        gradlePluginPortal()
         maven { url 'https://jitpack.io' }
     }
 
@@ -137,6 +138,7 @@ def applyApplication(project, buildConfigCase) {
             shaders = false
             buildConfig = buildConfigCase
         }
+
     }
 
 }

@@ -1,0 +1,5 @@
+dependencies {
+    implementation "androidx.appcompat:appcompat:$rootProject.ext.appcompat"
+    implementation 'com.squareup.picasso:picasso:2.71828'
+    compileOnly 'jp.co.cyberagent.android:gpuimage:2.1.0'
+}
