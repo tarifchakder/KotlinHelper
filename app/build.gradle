@@ -40,6 +40,8 @@ dependencies {
     implementation "androidx.core:core-ktx:$rootProject.ext.kotlinSDK"
     implementation "com.google.android.material:material:$rootProject.ext.material"
 
-    implementation project(path : ':view')
+    //implementation project(path : ':view')
+    implementation 'com.github.tarifchakder.KotlinHelper:collections:1.1.4'
+    implementation 'com.github.tarifchakder.KotlinHelper:view:1.1.4'
 
 }

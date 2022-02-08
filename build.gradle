@@ -57,13 +57,13 @@ subprojects {
             dependencies {
                 implementation fileTree(dir: 'libs', include: ['*.jar'])
             }
-            applyAndroid(it, true)
+            applyApplication(it, true)
             break
 
         case ["enums", "regex"]:
             apply plugin: 'java-library'
             apply plugin: 'kotlin'
-            applyKotlinModule(it)
+            applyForLibrary(it)
 
             break
 
@@ -73,7 +73,7 @@ subprojects {
             apply plugin: 'kotlin-android'
             apply plugin: 'maven-publish'
             apply plugin: 'kotlin-parcelize'
-            applyAndroid(it, false)
+            applyApplication(it, false)
 
             dependencies {
                 implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -94,7 +94,7 @@ subprojects {
 
 }
 
-def applyKotlinModule(project) {
+def applyForLibrary(project) {
 
     project.java {
         sourceCompatibility = JavaVersion.VERSION_11
@@ -106,7 +106,7 @@ def applyKotlinModule(project) {
     }
 }
 
-def applyAndroid(project, buildConfigCase) {
+def applyApplication(project, buildConfigCase) {
     project.android {
         compileSdkVersion rootProject.ext.compileSDK
 
@@ -118,8 +118,8 @@ def applyAndroid(project, buildConfigCase) {
         }
 
         compileOptions {
-            sourceCompatibility = 11
-            targetCompatibility = 11
+            sourceCompatibility = JavaVersion.VERSION_11
+            targetCompatibility = JavaVersion.VERSION_11
         }
 
         kotlinOptions {
