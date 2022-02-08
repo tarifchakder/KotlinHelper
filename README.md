@@ -45,10 +45,10 @@ dependencies
          def latestVersion = 1.1.4 // check latest version Jitpack badge
          
          // view 
-         implementation "com.github.tarifchakder.KotlinHelper:view:$latestVersion'
+         implementation "com.github.tarifchakder.KotlinHelper:view:$latestVersion"
          
          // collections
-         implementation "com.github.tarifchakder.KotlinHelper:collections:$latestVersion'
+         implementation "com.github.tarifchakder.KotlinHelper:collections:$latestVersion"
    }
 ```
 
