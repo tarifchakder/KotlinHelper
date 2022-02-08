@@ -1,3 +1,4 @@
 rootProject.name = "KotlinHelper"
 include ':app'
 include ':view'
+include ':collections'

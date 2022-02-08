@@ -43,12 +43,5 @@ android {
 }
 
 dependencies {
-
-    implementation "androidx.appcompat:appcompat:$rootProject.ext.appcompat"
     implementation "androidx.core:core-ktx:$rootProject.ext.kotlinSDK"
-    implementation "com.google.android.material:material:$rootProject.ext.material"
-
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$rootProject.ext.coroutines_core"
-    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$rootProject.ext.lifecycle_runtime_ktx"
-
 }
